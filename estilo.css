@@ -1,0 +1,121 @@
+/* Estilos generales y paleta japonesa */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #faf7f2; /* Blanco papel de arroz */
+  color: #1f2937;            /* Negro tinta */
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Encabezado principal */
+header {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  text-align: center;
+  padding: 50px 20px;
+  border-bottom: 5px solid #bc002d; /* Rojo bandera de Japón */
+}
+
+header p {
+  color: #ff4d6d;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+  margin: 0 0 10px 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+/* Barra de navegación */
+nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin: 5px 12px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #bc002d;
+}
+
+/* Contenedor principal */
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Tarjetas de cada sección */
+section {
+  background-color: #ffffff;
+  padding: 30px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  border-top: 3px solid #bc002d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  color: #bc002d;
+  margin-top: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* Cita destacada */
+blockquote {
+  background-color: #fff1f2; /* Rosa suave estilo flor de cerezo */
+  border-left: 4px solid #bc002d;
+  margin: 20px 0 0 0;
+  padding: 15px 20px;
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Listas dentro de las secciones */
+section ul {
+  padding-left: 20px;
+}
+
+section li {
+  margin-bottom: 12px;
+}
+
+section li strong {
+  color: #bc002d;
+}
+
+/* Sección final ("En resumen") */
+#resumen {
+  background-color: #1a1a1a;
+  color: #f9fafb;
+  border-top: 3px solid #ff4d6d;
+}
+
+#resumen h2 {
+  color: #ff4d6d;
+  border-bottom-color: #374151;
+}

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Por qué sueño con ir de vacaciones a Japón</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fuentes de Google para darle un toque editorial japonés -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --aka-red: #bc002d;       /* Rojo Hinomaru (bandera de Japón) */
+      --sakura-pink: #fce7f3;   /* Rosa suave flor de cerezo */
+      --sakura-border: #f9a8d4;
+      --washi-bg: #faf7f2;      /* Color papel tradicional japonés */
+      --sumi-ink: #1c1917;      /* Negro tinta sumi */
+      --kin-gold: #c59b27;      /* Dorado Kintsugi */
+    }
+
+    body {
+      background-color: var(--washi-bg);
+      /* Patrón sutil de ondas japonesas (Seigaiha) en el fondo */
+      background-image: radial-gradient(#e7e0d5 1px, transparent 1px);
+      background-size: 24px 24px;
+      color: var(--sumi-ink);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.75;
+    }
+
+    h1, h2, .jp-font {
+      font-family: 'Noto Serif JP', serif;
+    }
+
+    /* Encabezado con estética de sol naciente y sello japonés */
+    .hero-header {
+      background: radial-gradient(circle at 50% 120%, #3a0d16 0%, #1c1917 65%);
+      color: #ffffff;
+      border-bottom: 5px solid var(--aka-red);
+      padding: 4.5rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Círculo decorativo inspirado en el sol de la bandera */
+    .hero-header::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      background-color: rgba(188, 0, 45, 0.25);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hanko-stamp {
+      display: inline-block;
+      border: 2px solid #ff4d6d;
+      color: #ff4d6d;
+      padding: 4px 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 0.78rem;
+      border-radius: 4px;
+      background-color: rgba(188, 0, 45, 0.15);
+    }
+
+    /* Barra de navegación estilo madera oscura y papel */
+    .jp-nav {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e7e5e4;
+    }
+
+    .nav-pills .nav-link {
+      color: var(--sumi-ink);
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 0.45rem 1.1rem;
+      transition: all 0.25s ease;
+    }
+
+    .nav-pills .nav-link:hover {
+      background-color: var(--sakura-pink);
+      color: var(--aka-red);
+    }
+
+    /* Tarjetas estilo arquitectura tradicional */
+    .card-jp {
+      background-color: #ffffff;
+      border: 1px solid #e7e5e4;
+      border-top: 4px solid var(--aka-red);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(28, 25, 23, 0.06);
+    }
+
+    .section-title {
+      color: var(--aka-red);
+      font-weight: 700;
+      border-bottom: 2px solid #f5f5f4;
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kanji-tag {
+      font-size: 0.9rem;
+      color: #a8a29e;
+      font-weight: 400;
+    }
+
+    /* Caja de cita con estética Sakura */
+    .callout-sakura {
+      background: linear-gradient(to right, #fff1f2, #fdf2f8);
+      border-left: 5px solid var(--aka-red);
+      padding: 1.3rem 1.6rem;
+      border-radius: 0 10px 10px 0;
+      font-style: italic;
+      color: #4c0519;
+    }
+
+    /* Sub-tarjetas de ciudades */
+    .city-box {
+      background-color: #fafaf9;
+      border: 1px solid #e7e5e4;
+      border-left: 3px solid var(--kin-gold);
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .city-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+      border-left-color: var(--aka-red);
+    }
+
+    /* Estilo para las imágenes */
+    .img-jp {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #e7e5e4;
+    }
+
+    .img-city {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    /* Lista tecnológica */
+    .tech-list .list-group-item {
+      background-color: transparent;
+      border-color: #f5f5f4;
+      padding: 0.9rem 0;
+    }
+
+    .tech-list strong {
+      color: var(--aka-red);
+    }
+
+    /* Tarjeta final oscura con acento dorado */
+    .card-resumen {
+      background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
+      color: #fafaf9;
+      border: none;
+      border-top: 4px solid var(--kin-gold);
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado principal -->
+  <header class="hero-header text-center">
+    <div class="container position-relative">
+      <div class="mb-3">
+        <span class="hanko-stamp text-uppercase">日本 • Mi próximo gran destino</span>
+      </div>
+      <h1 class="display-5 fw-bold mb-3">Por qué sueño con ir de vacaciones a Japón</h1>
+      <p class="lead text-light opacity-75 mx-auto" style="max-width: 720px;">
+        Un viaje donde la tradición milenaria, la tecnología del futuro y la cultura automovilística se encuentran en un mismo lugar.
+      </p>
+    </div>
+  </header>
+
+  <!-- Navegación rápida -->
+  <nav class="jp-nav shadow-sm sticky-top py-2">
+    <div class="container d-flex justify-content-center flex-wrap gap-2">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a class="nav-link" href="#turismo">1. Lugares turísticos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cultura">2. Cultura</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tecnologia">3. Tecnología</a></li>
+        <li class="nav-item"><a class="nav-link" href="#autos">4. Autos y JDM</a></li>
+        <li class="nav-item"><a class="nav-link" href="#resumen">En resumen</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="container my-5" style="max-width: 900px;">
+
+    <!-- Introducción -->
+    <section class="card-jp p-4 p-md-5 mb-4">
+      <p class="fs-5">
+        Si tuviera que elegir un lugar en el mundo para irme de vacaciones hoy mismo, sin dudarlo diría <strong style="color: var(--aka-red);">Japón</strong>. 
+        Desde hace tiempo me llama muchísimo la atención ese país porque siento que no se parece a ningún otro: 
+        es un lugar donde lo más antiguo y tradicional convive al lado de cosas que parecen sacadas de una película del futuro. 
+        No es solo un viaje para sacar fotos lindas, sino una experiencia completa que me encantaría vivir en persona.
+      </p>
+
+      <!-- IMAGEN DE PORTADA / INTRODUCCIÓN -->
+      <figure class="my-4">
+        <img src="imagenes/portada japon.jfif" alt="Paisaje de Japón combinando templos tradicionales y ciudad moderna" class="img-jp">
+        <figcaption class="text-muted small text-center mt-2">El contraste único entre la tradición y la modernidad en Japón.</figcaption>
+      </figure>
+
+      <div class="callout-sakura mt-4">
+        “Lo que más me atrae de Japón es ese contraste único: podés estar caminando por un templo tranquilo con cientos de años de historia y, a los diez minutos, encontrarte rodeado de pantallas gigantes, trenes ultrarrápidos y autos deportivos.”
+      </div>
+    </section>
+
+    <!-- Sección 1: Lugares turísticos -->
+    <section id="turismo" class="card-jp p-4 p-md-5 mb-4">
+      <h2 class="h3 section-title">
+        <span>1. Los lugares turísticos que quiero conocer</span>
+        <span class="kanji-tag">観光 • Turismo</span>
+      </h2>
+      <p>
+        Cuando me imagino recorriendo Japón, tengo varios puntos marcados en mi lista que me gustaría visitar sí o sí, porque cada ciudad tiene una onda completamente distinta:
+      </p>
+
+      <div class="row g-3 mt-2">
+        <div class="col-md-6">
+          <div class="p-3 city-box h-100">
+            <!-- IMAGEN TOKIO -->
+            <img src="imagenes/tokio.jfif" alt="Cruce de Shibuya en Tokio de noche" class="img-city mb-3">
+            <h3 class="h5 fw-bold text-dark">Tokio <span class="text-muted fw-normal fs-6">(東京)</span></h3>
+            <p class="mb-0 small">
+              Me encantaría perderme por barrios como Shibuya, con su famoso cruce peatonal lleno de gente y luces de neón, o Akihabara, que es el paraíso de la tecnología, los videojuegos y el anime. También me gustaría subir a alguna torre como la Tokyo Skytree para ver toda la ciudad desde arriba.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-3 city-box h-100">
+            <!-- IMAGEN KIOTO -->
+            <img src="imagenes/kioto.jfif" alt="Portales rojos torii en Fushimi Inari, Kioto" class="img-city mb-3">
+            <h3 class="h5 fw-bold text-dark">Kioto <span class="text-muted fw-normal fs-6">(京都)</span></h3>
+            <p class="mb-0 small">
+              Es la otra cara de la moneda. Quiero conocer sus templos históricos, los santuarios como Fushimi Inari con sus miles de portales rojos y sus barrios tradicionales donde todavía se respira la historia antigua del país.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-3 city-box h-100">
+            <!-- IMAGEN MONTE FUJI -->
+            <img src="imagenes/monte fuji.jfif" alt="Vista del Monte Fuji desde el lago Kawaguchiko" class="img-city mb-3">
+            <h3 class="h5 fw-bold text-dark">Monte Fuji y alrededores <span class="text-muted fw-normal fs-6">(富士山)</span></h3>
+            <p class="mb-0 small">
+              Ver el Monte Fuji en persona, aunque sea desde alguno de los lagos cercanos como Kawaguchiko, debe ser impresionante. Es la postal más clásica de Japón y me gustaría verla con mis propios ojos.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-3 city-box h-100">
+            <!-- IMAGEN OSAKA -->
+            <img src="imagenes/osaka.jfif" alt="Carteles luminosos y comida callejera en Dotonbori, Osaka" class="img-city mb-3">
+            <h3 class="h5 fw-bold text-dark">Osaka <span class="text-muted fw-normal fs-6">(大阪)</span></h3>
+            <p class="mb-0 small">
+              Dicen que es una ciudad más relajada, con mucha vida nocturna y la mejor comida callejera del país, ideal para probar platos típicos sin parar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 2: Cultura -->
+    <section id="cultura" class="card-jp p-4 p-md-5 mb-4">
+      <h2 class="h3 section-title">
+        <span>2. Su cultura, respeto y estilo de vida</span>
+        <span class="kanji-tag">文化 • Cultura</span>
+      </h2>
+      <p>
+        Más allá de los paisajes, algo que admiro mucho de Japón es su cultura. Siempre me llamó la atención el nivel de respeto, orden y limpieza que tienen en la vida cotidiana. Me genera mucha curiosidad ver cómo funciona una sociedad donde nadie tira basura en la calle, el transporte público llega al segundo exacto y la gente se trata con tanta educación.
+      </p>
+      <p>
+        Además, me gustaría vivir de cerca sus costumbres: probar la gastronomía auténtica (desde un buen plato de ramen hasta sushi hecho en el momento), conocer la historia de los samuráis, visitar algún festival tradicional y entender cómo logran mantener vivas sus tradiciones milenarias a pesar de ser una potencia mundial.
+      </p>
+
+      <!-- IMAGEN CULTURA / GASTRONOMÍA -->
+      <figure class="mt-4 mb-0">
+        <img src="imagenes/comida japon.jfif" alt="Gastronomía japonesa y arquitectura tradicional" class="img-jp">
+        <figcaption class="text-muted small text-center mt-2">La gastronomía, los templos y el respeto por las tradiciones milenarias.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Sección 3: Tecnología -->
+    <section id="tecnologia" class="card-jp p-4 p-md-5 mb-4">
+      <h2 class="h3 section-title">
+        <span>3. El avance tecnológico en el día a día</span>
+        <span class="kanji-tag">技術 • Tecnología</span>
+      </h2>
+      <p>
+        Otro motivo gigante por el que quiero ir es la tecnología. Japón siempre estuvo un paso adelante en innovación, y me encantaría ver cómo la aplican en las cosas más simples de todos los días:
+      </p>
+      <ul class="list-group list-group-flush tech-list">
+        <li class="list-group-item">
+          <strong>El tren bala (Shinkansen):</strong> Viajar a más de 300 km/h con una puntualidad y comodidad increíbles es una experiencia que quiero vivir.
+        </li>
+        <li class="list-group-item">
+          <strong>Robótica y automatización:</strong> Me fascina saber que allá hay restaurantes atendidos por robots, hoteles automatizados y máquinas expendedoras en cada esquina que venden literalmente de todo.
+        </li>
+        <li class="list-group-item">
+          <strong>Ciudades inteligentes:</strong> Desde los sistemas de pago hasta los baños ultratecnológicos o las pantallas interactivas en las estaciones, todo está pensado para que funcione de manera rápida y eficiente.
+        </li>
+      </ul>
+
+      <!-- IMAGEN TECNOLOGÍA / SHINKANSEN -->
+      <figure class="mt-4 mb-0">
+        <img src="imagenes/tren bala.jfif" alt="Tren bala Shinkansen en Japón" class="img-jp">
+        <figcaption class="text-muted small text-center mt-2">El Shinkansen (tren bala) y la infraestructura tecnológica de vanguardia.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Sección 4: Autos y cultura JDM -->
+    <section id="autos" class="card-jp p-4 p-md-5 mb-4">
+      <h2 class="h3 section-title">
+        <span>4. Mi fanatismo por los autos y la cultura JDM</span>
+        <span class="kanji-tag">車 • Automovilismo</span>
+      </h2>
+      <p>
+        Si hay algo que me vuelve loco de Japón, son los autos. Para cualquiera al que le gusten los fierros, Japón es prácticamente la tierra prometida. Es la cuna de marcas legendarias como <strong>Toyota, Nissan, Honda, Mazda y Subaru</strong>, y de modelos icónicos que marcaron historia tanto en las pistas como en la calle.
+      </p>
+      <p>
+        Me encantaría caminar por Tokio y cruzarme con leyendas del mundo <strong>JDM (Japanese Domestic Market)</strong> como un Nissan Skyline GT-R, un Toyota Supra, un Mazda RX-7 o un Honda NSX. Además, sería un sueño poder ir a lugares míticos de reunión de autos como <strong>Daikoku Parking Area</strong>, ver autos modificados con un nivel de detalle increíble, visitar los museos oficiales de las marcas y sentir de cerca esa pasión por el automovilismo y el <em>drifting</em> que nació en las montañas japonesas.
+      </p>
+
+      <!-- GALERÍA DE 2 IMÁGENES PARA AUTOS JDM -->
+      <div class="row g-3 mt-3">
+        <div class="col-md-6">
+          <img src="imagenes/deportivo JDM.jfif" alt="Deportivo japonés JDM en las calles de Tokio" class="img-city" style="height: 210px;">
+        </div>
+        <div class="col-md-6">
+          <img src="imagenes/reunion de autos JDM.jfif" alt="Reunión de autos modificados en Daikoku PA" class="img-city" style="height: 210px;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusión -->
+    <section id="resumen" class="card-resumen p-4 p-md-5">
+      <h2 class="h4 text-uppercase fw-bold mb-3" style="color: #facc15;">En resumen • まとめ</h2>
+      <p class="mb-0 fs-5">
+        Ir de vacaciones a Japón no sería un simple viaje más para mí, sino cumplir un sueño. Es el destino perfecto porque combina todo lo que me gusta: ciudades vibrantes, una cultura súper interesante, tecnología de punta y la mejor cultura automovilística del mundo. Ojalá en algún momento pueda hacer ese viaje realidad.
+      </p>
+    </section>
+    <!-- Sección 5: Formulario de contacto / opinión -->
+    <section id="contacto" class="card-jp p-4 p-md-5 mt-4">
+      <h2 class="h3 section-title">
+        <span>¿Vos también soñás con viajar a Japón?</span>
+        <span class="kanji-tag">連絡 • Contacto</span>
+      </h2>
+      <p class="text-muted mb-4">
+        Dejame tu opinión, recomendame algún lugar que no me pueda perder o contame qué es lo que más te gusta de la cultura japonesa.
+      </p>
+
+      <form id="form-japon" class="row g-3">
+        <!-- Nombre -->
+        <div class="col-md-6">
+          <label for="nombre" class="form-label fw-semibold">Tu nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Ej: Lucas" required>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6">
+          <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+          <input type="email" class="form-control" id="email" placeholder="lucas@ejemplo.com" required>
+        </div>
+
+        <!-- Ciudad o temática favorita -->
+        <div class="col-md-6">
+          <label for="favorito" class="form-label fw-semibold">¿Qué te llama más la atención?</label>
+          <select class="form-select" id="favorito" required>
+            <option value="" selected disabled>Elegí una opción...</option>
+            <option value="Tokio y tecnología">Tokio y su tecnología</option>
+            <option value="Kioto y templos">Kioto y la cultura tradicional</option>
+            <option value="Gastronomía japonesa">La gastronomía (Ramen, Sushi, etc.)</option>
+            <option value="Autos y cultura JDM">Los autos y la cultura JDM</option>
+            <option value="Monte Fuji y paisajes">El Monte Fuji y sus paisajes</option>
+          </select>
+        </div>
+
+        <!-- ¿Ya viajaste? -->
+        <div class="col-md-6">
+          <label class="form-label fw-semibold d-block">¿Ya tuviste la suerte de ir?</label>
+          <div class="form-check form-check-inline mt-2">
+            <input class="form-check-input" type="radio" name="viaje" id="viajeNo" value="Aún no, es mi sueño" checked>
+            <label class="form-check-label" for="viajeNo">Aún no, pero quiero ir</label>
+          </div>
+          <div class="form-check form-check-inline mt-2">
+            <input class="form-check-input" type="radio" name="viaje" id="viajeSi" value="Sí, ya fui">
+            <label class="form-check-label" for="viajeSi">¡Sí, ya fui!</label>
+          </div>
+        </div>
+
+        <!-- Mensaje -->
+        <div class="col-12">
+          <label for="mensaje" class="form-label fw-semibold">Tu comentario o recomendación</label>
+          <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribí acá qué lugar te gustaría visitar o algún consejo de viaje..." required></textarea>
+        </div>
+
+        <!-- Botón de envío -->
+        <div class="col-12 mt-4">
+          <button type="submit" class="btn px-4 py-2 fw-bold text-white" style="background-color: var(--aka-red); border-radius: 8px;">
+            Enviar mensaje ⛩️
+          </button>
+        </div>
+      </form>
+
+      <!-- Alerta de confirmación (oculta por defecto) -->
+      <div id="alerta-exito" class="alert mt-4 d-none" role="alert" style="background-color: var(--sakura-pink); border-left: 5px solid var(--aka-red); color: #4c0519;">
+        <strong>¡Arigatō gozaimasu (ありがとうございます)!</strong> Tu mensaje fue enviado correctamente. ¡Gracias por compartir tu pasión por Japón!
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="text-center text-muted py-4 border-top" style="background-color: #f5f5f4;">
+    <small>Escrito en primera persona • Proyecto sobre Japón (日本)</small>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Tu archivo JavaScript -->
+  <script src="scrip.js"></script>
+</body>
+</html>
